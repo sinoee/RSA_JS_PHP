@@ -19,3 +19,13 @@ RSA_JS_PHP实现js前端加密，php后端解密用户密码
   openssl>pkcs8 -topk8 -inform PEM -in rsa_private_key.pem -outform PEM -nocrypt
 
   注意：“>”符号后面的才是需要输入的命令。
+
+
+前端代码十分简单，只有短短的几行，下面分别解释具体的含义：
+
+1.new一个RSAKey对象，
+2.定义modulus（模数），我们可以根据私钥计算出该值（十六进制），具体指令: rsa -in rsa_private_key.pem -noout -modulus 
+3.定义exponent,此值在openssl生成秘钥时，输出，一般情况下e的取值是一个定值10001（十六进制）
+4.设置公钥
+5.加密数据
+至此，我们就完成了前端的公钥加密。
